@@ -3,20 +3,7 @@ import subprocess, curses, curses.panel, os
 from importlib import import_module
 from time import sleep
 #################################################
-#AVAILABLE BOARDS: opipc, opiz, opione, neo
-boardName = 'OPiOne'
-for file in os.listdir('%s\menus' % os.getcwd())
-	supportedBoards = []
-	if file.endswith('.py'):
-		supportedBoards.append(file.replace('.py'))
-	print supportedBoards
-
-#supportedBoards = os.listdir('%s\menus' % os.getcwd())
-#["OPiOne", "NPiNeo", "OPiPC", "OPiZero"]
-if boardName in supportedBoards:
-	board = import_module('menus.%s' % boardName)
-else:
-	print "board isn't supported"
+# put menu.py here#
 ############################################
 COLUMNS=79 #default tty size - 1 
 LINES=24
