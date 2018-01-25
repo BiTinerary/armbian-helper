@@ -1,19 +1,21 @@
-from importlib import import_module
-import os
+#from importlib import import_module
+# import os
 
-supportedBoards = []
+## This can be incorporated in begining of main armbian-helper script
 
+supportedBoards = [] # Dynamic array of supported boards. Useful in case community adds more support/board files.
 for file in os.listdir('%s\menus' % os.getcwd()):
-	if file.endswith('.py') and file != '__init__.py':
+	if file.endswith('.py') and file != '__init__.py': # Don't include __init__.py. There's prolly a better way to do this.
 		supportedBoards.append(file.replace('.py', ''))
-
-print supportedBoards
-boardName = 'OPiOne'
+		#!! File names need to be titled exactly as bash command would output !!#
+		
+boardName = 'OPiOne' # subsititute for bash command to get board name
 
 if boardName in supportedBoards:
-	board = import_module('menus.%s' % boardName)
+	board = import_module('menus.%s' % boardName) # Properly import **ONLY** host board info
 else:
-	print "board isn't supported"
+	print "board isn't supported" # There is no python, support script with ASCII art and pin info for your board.
+	# Is the supporting python script named correctly?
 
-print board.boardArray
-print board.outline
+print board.boardArray # function/array names should be identical regardless of board type within 'support' script
+print board.outline # Example
