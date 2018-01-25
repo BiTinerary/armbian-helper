@@ -1,8 +1,9 @@
 #from importlib import import_module
 # import os
+import sys
+sys.dont_write_bytecode = True # Avoid compiled byte code clutter, when executing/importing scripts from /menus folder.
 
-## This can be incorporated in begining of main armbian-helper script
-
+## The following can be incorporated in begining of main armbian-helper script
 supportedBoards = [] # Dynamic array of supported boards. Useful in case community adds more support/board files.
 for file in os.listdir('%s\menus' % os.getcwd()):
 	if file.endswith('.py') and file != '__init__.py': # Don't include __init__.py. There's prolly a better way to do this.
