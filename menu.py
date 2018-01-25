@@ -1,6 +1,6 @@
-#from importlib import import_module
-# import os
 import sys
+from importlib import import_module
+
 sys.dont_write_bytecode = True # Avoid compiled byte code clutter, when executing/importing scripts from /menus folder.
 
 ## The following can be incorporated in begining of main armbian-helper script
